@@ -1,6 +1,13 @@
 package com.example.airport.serviceimplement;
+import com.example.airport.dtos.FlightDto;
+import com.example.airport.entities.Flight;
+import com.example.airport.mapper.FlightMapper;
+import com.example.airport.repositories.AirlaneRepository;
+import com.example.airport.repositories.FlightRepository;
+import com.example.airport.services.FlightService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -9,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor(onConstructor = @__(@Lazy))
-public class FlightServiceImpl {
+public class FlightServiceImpl implements FlightService {
     private final AirlaneRepository airlaneRepository;
     private FlightMapper flightMapper;
     FlightRepository flightRepository;
