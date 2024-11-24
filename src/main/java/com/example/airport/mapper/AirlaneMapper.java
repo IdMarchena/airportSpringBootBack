@@ -5,7 +5,6 @@ import org.mapstruct.Named;
 
 import com.example.airport.dtos.AirlaneDto;
 import com.example.airport.entities.Airlane;
-import org.springframework.web.bind.annotation.Mapping;
 
 import java.util.List;
 
