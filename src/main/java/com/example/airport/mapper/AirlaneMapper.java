@@ -1,8 +1,8 @@
 package com.example.airport.mapper;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-
 import com.example.airport.dtos.AirlaneDto;
 import com.example.airport.entities.Airlane;
 
@@ -10,11 +10,12 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = FlightMapper.class)
 public interface AirlaneMapper {
+
     @Named("complete")
-    @Mapping(source = "airlane.flights", target = "flights", qualifiedByName = "listComplete")
+    @Mapping(source = "flights", target = "flights", qualifiedByName = "listComplete")
     AirlaneDto toIdDto(Airlane airlane);
 
-    @Mapping(source = "airlaneDto.flights", target = "flights")
+    @Mapping(source = "flights", target = "flights")
     Airlane toEntity(AirlaneDto airlaneDto);
 
     @Named("listComplete")
@@ -30,7 +31,7 @@ public interface AirlaneMapper {
     AirlaneDto toDto(Airlane airlane);
 
     @Named("listWithoutId")
-    @Mapping(target = "id",ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(source = "airlane.flights", target = "flights", qualifiedByName = "listWithoutId")
     List<AirlaneDto> toListDto(List<Airlane> airlanes);
 }
