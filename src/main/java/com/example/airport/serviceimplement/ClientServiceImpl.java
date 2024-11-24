@@ -1,6 +1,13 @@
 package com.example.airport.serviceimplement;
+import com.example.airport.dtos.ClientDto;
+import com.example.airport.entities.Client;
+import com.example.airport.mapper.ClientMapper;
+import com.example.airport.mapper.ReserveMapper;
+import com.example.airport.repositories.ClientRepository;
+import com.example.airport.services.ClientService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor(onConstructor = @__(@Lazy))
-public class ClientServiceImpl {
+public class ClientServiceImpl implements ClientService {
     private ClientMapper clientMapper;
     private ReserveMapper reserveMapper;
     private ClientRepository clientRepository;
