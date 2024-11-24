@@ -10,6 +10,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = ReserveMapper.class)
 public interface ClientMapper {
+
     @Named("complete")
     @Mapping(source = "client.reserves", target = "reserves", qualifiedByName = "listComplete")
     ClientDto toIdDto(Client client);
@@ -21,12 +22,11 @@ public interface ClientMapper {
     @Mapping(source = "clientDto.reserves", target = "reserves")
     Client toEntity(ClientDto clientDto);
 
-
     @Mapping(source = "clientDto.reserves", target = "reserves")
     List<Client> toListEntity(List<ClientDto> clientDto);
 
     @Named("withoutId")
-    @Mapping(target = "id",ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(source = "client.reserves", target = "reserves", qualifiedByName = "listWithoutId")
     ClientDto toDto(Client client);
 
