@@ -1,9 +1,11 @@
 package com.example.airport.mapper;
 
 import com.example.airport.dtos.FlightDto;
-import com.example.airport.entities.Client;
-import com.example.airport.entities.Flight;
-import com.example.airport.entities.Reserve;
+import com.example.airport.entities.*;
+import com.example.airport.repositories.AirlaneRepository;
+import com.example.airport.repositories.AirportRepository;
+import com.example.airport.repositories.ClientRepository;
+import com.example.airport.repositories.ReserveRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
