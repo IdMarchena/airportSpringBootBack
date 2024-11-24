@@ -12,20 +12,25 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public abstract class ReserveMapper {
+
     @Autowired
     private ReserveRepository reserveRepository;
+
     @Autowired
     private PassengerRepository passengerRepository;
+
     @Autowired
     private ClientRepository clientRepository;
+
     @Autowired
     private AirlaneRepository airlineRepository;
+
     @Autowired
     private AirportRepository airportRepository;
 
     @Named("complete")
-    @Mapping(source = "reserve.client.id", target = "client")
     @Mapping(source = "reserve.passengers", target = "passengers")
+    @Mapping(source = "reserve.client.id", target = "client")
     @Mapping(source = "reserve.flights", target = "flights")
     public abstract ReserveDto toIdDto(Reserve reserve);
 
@@ -59,42 +64,43 @@ public abstract class ReserveMapper {
     @Mapping(source = "reserve.flights", target = "flights")
     public abstract List<ReserveDto> toListDto(List<Reserve> reserves);
 
-    public Long mapToClientId(Client client){
+    public Long mapToClientId(Client client) {
         return client.getId();
     }
 
-    public Client mapToClient(Long id){
-        return clientRepository.findById(id).get();
+    public Client mapToClient(Long id) {
+        return clientRepository.findById(id).orElse(null);
     }
 
-    public Long mapToReserveId(Reserve reserve){
+    public Long mapToReserveId(Reserve reserve) {
         return reserve.getId();
     }
-    public Reserve mapToReserve(Long id){
-        return reserveRepository.findById(id).get();
+
+    public Reserve mapToReserve(Long id) {
+        return reserveRepository.findById(id).orElse(null);
     }
 
-    public Long mapToPassengerId(Passenger passenger){
+    public Long mapToPassengerId(Passenger passenger) {
         return passenger.getId();
     }
 
-    public Passenger mapToPassenger(Long id){
-        return passengerRepository.findById(id).get();
+    public Passenger mapToPassenger(Long id) {
+        return passengerRepository.findById(id).orElse(null);
     }
 
-    public Long mapToAirlaneId(Airlane airline){
-        return airline.getId();
+    public Long mapToAirlaneId(Airlane airlane) {
+        return airlane.getId();
     }
 
-    public Airlane mapToAirlane(Long id){
-        return airlineRepository.findById(id).get();
+    public Airlane mapToAirlane(Long id) {
+        return airlineRepository.findById(id).orElse(null);
     }
 
-    public Long mapToAirportId(Airport airport){
+    public Long mapToAirportId(Airport airport) {
         return airport.getId();
     }
 
-    public Airport mapToAirport(Long id){
-        return airportRepository.findById(id).get();
+    public Airport mapToAirport(Long id) {
+        return airportRepository.findById(id).orElse(null);
     }
 }
