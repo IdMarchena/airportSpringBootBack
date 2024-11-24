@@ -10,6 +10,7 @@ import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring", uses = FlightMapper.class)
 public interface AirportMapper {
+
     @Named("complete")
     @Mapping(source = "airport.flights", target = "flights", qualifiedByName = "listComplete")
     AirportDto toIdDto(Airport airport);
