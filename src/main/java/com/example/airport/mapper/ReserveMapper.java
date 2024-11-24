@@ -2,6 +2,7 @@ package com.example.airport.mapper;
 
 import com.example.airport.dtos.ReserveDto;
 import com.example.airport.entities.*;
+import com.example.airport.repositories.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
