@@ -29,6 +29,7 @@ public class Airlane {
     @Column
     private String originCountry;
 
+
     @OneToMany(mappedBy="airlane", fetch = FetchType.LAZY)
     private List<Flight> flights;
 
