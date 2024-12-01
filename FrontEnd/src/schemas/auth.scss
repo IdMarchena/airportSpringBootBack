@@ -1,0 +1,134 @@
+// auth.scss
+
+// Variables para colores y fuentes
+$primary-color: #4CAF50;
+$secondary-color: #FF6347;
+$background-color: #f7f7f7;
+$border-radius: 8px;
+$font-family: 'Arial', sans-serif;
+$input-background: #fff;
+$input-border: #ccc;
+$button-color: #fff;
+$button-background: $primary-color;
+$button-hover-background: darken($primary-color, 10%);
+$button-border: $primary-color;
+
+// Estructura principal del contenedor
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $background-color;
+    font-family: $font-family;
+}
+
+// Estilo del formulario
+.form-container {
+    background-color: $input-background;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    // Estilo de los campos según el tipo de ruta
+    &.login {
+        background-color: #f9f9f9;
+    }
+
+    &.signup {
+        background-color: #eaf7e7;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        
+        .label {
+            font-size: 14px;
+            font-weight: 600;
+            color: $primary-color;
+            margin-bottom: 5px;
+        }
+
+        .input {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid $input-border;
+            border-radius: $border-radius;
+            outline: none;
+            transition: border-color 0.3s ease;
+            
+            &::placeholder {
+                color: #888;
+            }
+
+            &:focus {
+                border-color: $primary-color;
+            }
+
+            &.input-username,
+            &.input-email,
+            &.input-password {
+                margin-bottom: 15px;
+            }
+        }
+
+        .button {
+            padding: 12px;
+            background-color: $button-background;
+            color: $button-color;
+            border: 1px solid $button-border;
+            border-radius: $border-radius;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: $button-hover-background;
+            }
+
+            &.type-2 {
+                background-color: transparent;
+                color: $primary-color;
+                border: 1px solid $primary-color;
+                margin-top: 15px;
+            }
+        }
+
+        a {
+            text-align: center;
+            color: $secondary-color;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 10px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Mensajes de error o éxito
+    p {
+        text-align: center;
+        color: $secondary-color;
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+}
+
+// Estilos responsivos para dispositivos pequeños
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .form {
+        gap: 12px;
+    }
+}
